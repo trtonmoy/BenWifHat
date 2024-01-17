@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BenWifHat</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <style>
+      body {
+        font-family: Arial, sans-serif; /* Arial fontunu kullanmak için ekledik */
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("./bwif.png");
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #ortaResim {
+        cursor: pointer;
+      }
+
+      .link-yazi {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .link-yazi a {
+        text-decoration: none;
+        color: white;
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ortaResimContainer">
+      <img id="ortaResim" src="center-image.jpg" alt="Orta Resim" />
+      <audio id="ses" src="windows.mp3"></audio>
+    </div>
+
+    <video
+      id="arkaPlanVideo"
+      src="background.mp4"
+      style="
+        position: center;
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 60%;
+        display: none;
+      "
+    ></video>
+
+    <div class="link-yazi">
+      <a target="_blank" href="https://t.me/BWIFsolana">Telegram</a>
+      <a target="_blank" href="twitterlink">Twitter</a>
+      <a
+        target="_blank"
+        href="https://dexscreener.com/solana/6ycgpjmggeyhzd546ng1znvv6dzt8pz8cl7cnyfiar1k"
+        >Dexscreener</a
+      >
+    </div>
+
+    <script>
+      const ortaResim = document.getElementById("ortaResim");
+      const arkaPlanVideo = document.getElementById("arkaPlanVideo");
+      const ses = document.getElementById("ses");
+      const linkYazi = document.querySelector(".link-yazi");
+
+      ortaResim.addEventListener("click", function () {
+        document.body.style.backgroundImage = " url('./banner.png')"; // Yeni arka plan resmini burada ayarlayabilirsiniz
+        arkaPlanVideo.style.display = "block"; // Videoyu göster
+        arkaPlanVideo.play(); // Videoyu oynat
+        ses.play(); // Ses çal
+        ortaResim.style.display = "none"; // Orta resmi gizle
+        linkYazi.style.display = "flex"; // Yazıları göster
+      });
+
+      ortaResim.addEventListener("mouseenter", function () {
+        ortaResim.style.opacity = "0.8"; // Orta resmin opaklığını düşür
+      });
+
+      ortaResim.addEventListener("mouseleave", function () {
+        ortaResim.style.opacity = "1"; // Orta resmin opaklığını geri al
+      });
+    </script>
+  </body>
+</html>
